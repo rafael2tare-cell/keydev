@@ -36,7 +36,7 @@ app.mount("/static", StaticFiles(directory="backend/static"), name="static")
 
 @app.get("/")
 async def read_index():
-    return FileResponse("static/index.html")
+    return FileResponse("backend/static/index.html")
 
 # Create a router with the /api prefix
 api_router = APIRouter(prefix="/api")
