@@ -11,10 +11,17 @@ import uuid
 from datetime import datetime, timezone
 import asyncio
 import resend
-
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
+
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
+@app.get("/")
+async def read_index():
+    return FileResponse("static/index.html")
 
 # MongoDB connection
 mongo_url = os.getenv('MONGO_URL', 'mongodb+srv://nujcesunt_db_user:PrQZSFVqM0Q1i7vn@keydev.lvu52sh.mongodb.net')
