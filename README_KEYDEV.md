@@ -134,9 +134,9 @@ tail -f /var/log/supervisor/frontend.*.log
 
 ## 🌐 URL-uri
 
-- **Site Principal**: https://responsive-backend.preview.emergentagent.com
-- **Admin Dashboard**: https://responsive-backend.preview.emergentagent.com/admin
-- **Backend API**: https://responsive-backend.preview.emergentagent.com/api
+- **Site Principal**: https://responsive-backend.preview.keydevagent.com
+- **Admin Dashboard**: https://responsive-backend.preview.keydevagent.com/admin
+- **Backend API**: https://responsive-backend.preview.keydevagent.com/api
 
 ## 📱 Responsive Design
 

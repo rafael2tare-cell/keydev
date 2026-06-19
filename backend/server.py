@@ -32,11 +32,18 @@ NOTIFICATION_EMAIL = os.environ.get('NOTIFICATION_EMAIL', 'nujcesunt@gmail.com')
 # Create the main app without a prefix
 app = FastAPI()
 
-app.mount("/static", StaticFiles(directory="backend/static"), name="static")
+# 1. Calculăm calea exactă către folderul static de lângă acest server.py
+current_dir = os.path.dirname(os.path.abspath(__file__))
+static_dir = os.path.join(current_dir, "static")
 
+# 2. Montăm folderul static (va rezulta automat backend/static)
+app.mount("/static", StaticFiles(directory=static_dir), name="static")
+
+# 3. Ruta principală care trimite index.html din acel folder static
 @app.get("/")
 async def read_index():
-    return FileResponse("backend/static/index.html")
+    index_path = os.path.join(static_dir, "index.html")
+    return FileResponse(index_path)
 
 # Create a router with the /api prefix
 api_router = APIRouter(prefix="/api")

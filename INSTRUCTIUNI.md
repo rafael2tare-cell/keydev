@@ -69,14 +69,14 @@ Am transformat HTML-ul KEYDEV într-o aplicație full-stack completă cu:
 ## 🚀 Cum să folosești aplicația
 
 ### 1️⃣ Accesează Site-ul
-**URL**: https://responsive-backend.preview.emergentagent.com
+**URL**: https://responsive-backend.preview.keydevagent.com
 
 - Navighează prin cele 4 secțiuni
 - Completează formularul de contact
 - Primești confirmare instantanee
 
 ### 2️⃣ Accesează Admin Dashboard
-**URL**: https://responsive-backend.preview.emergentagent.com/admin
+**URL**: https://responsive-backend.preview.keydevagent.com/admin
 
 - Vezi toate contactele primite
 - Filtrează după status
@@ -143,10 +143,10 @@ tail -f /var/log/supervisor/backend.*.log
 tail -f /var/log/supervisor/frontend.*.log
 
 # Testează API
-curl https://responsive-backend.preview.emergentagent.com/api/
+curl https://responsive-backend.preview.keydevagent.com/api/
 
 # Vezi toate contactele
-curl https://responsive-backend.preview.emergentagent.com/api/contacts
+curl https://responsive-backend.preview.keydevagent.com/api/contacts
 ```
 
 ## 📁 Structura Fișiere Importante
