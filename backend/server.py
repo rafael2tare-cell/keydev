@@ -32,9 +32,19 @@ NOTIFICATION_EMAIL = os.environ.get('NOTIFICATION_EMAIL', 'nujcesunt@gmail.com')
 # Create the main app without a prefix
 app = FastAPI()
 
-# 1. Calculăm calea exactă către folderul static de lângă acest server.py
-current_dir = os.path.dirname(os.path.abspath(__file__))
-static_dir = os.path.join(current_dir, "static")
+# 1. Îi spunem să caute folderul de build din frontend!
+current_dir = os.path.dirname(os.path.abspath(__file__)) # suntem în backend
+project_root = os.path.dirname(current_dir) # urcăm în folderul principal
+frontend_build_dir = os.path.join(project_root, "frontend", "build") # găsim frontend/build
+
+# 2. Montăm folderul automat
+app.mount("/static", StaticFiles(directory=frontend_build_dir), name="static")
+
+# 3. Trimitem index.html direct din build-ul de frontend
+@app.get("/")
+async def read_index():
+    index_path = os.path.join(frontend_build_dir, "index.html")
+    return FileResponse(index_path)
 
 # 2. Montăm folderul static (va rezulta automat backend/static)
 app.mount("/static", StaticFiles(directory=static_dir), name="static")
