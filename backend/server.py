@@ -32,7 +32,7 @@ NOTIFICATION_EMAIL = os.environ.get('NOTIFICATION_EMAIL', 'nujcesunt@gmail.com')
 # Create the main app without a prefix
 app = FastAPI()
 
-app.mount("/static", StaticFiles(directory="static"), name="static")
+app.mount("/static", StaticFiles(directory="backend/static"), name="static")
 
 @app.get("/")
 async def read_index():
